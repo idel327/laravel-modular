@@ -1,0 +1,8 @@
+{
+	"name" : "DummyName",
+	"slug" : "DummySlug",
+	"version" : "DummyVersion",
+	"order" : "DummyOrder",
+	"enabled" : true,
+	"description" : "DummyDescription"
+}
