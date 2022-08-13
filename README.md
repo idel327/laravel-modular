@@ -2,6 +2,8 @@
 
 Laravel Modular helps to make your application modular. Often happens that our applications grow a lot and we need a lot of models, resources, controllers, migrations etc.. With this package we can divide our parts in little chunks (or modules).
 
+** Loading modules using PSR-4 standard automatically **
+
 ## Install
 
 To install through Composer, by run the following command:
@@ -52,11 +54,13 @@ Default structure with files :
 
 # To Do
 
-- Add document
-- Add tests
-- Add config file
-- Improving Performance
-- Cache system
+- Add Document.
+- Add Test Files.
+- Add Config File.
+- Improving Performance.
+- Cache System.
+- Support Laravel Nova.
+- Public Folder Support In Each Module.
 
 # Contact us
 
