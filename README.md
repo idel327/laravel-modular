@@ -48,6 +48,13 @@ Default structure with files :
     	* ServiceProvider.php
   * info.json
 
+# To Do:
+
+- Add document
+- Add tests
+- Add config file
+- Improving Performance
+- Cache system
 
 # Contact us
 
