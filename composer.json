@@ -1,6 +1,6 @@
 {
-    "name": "idel/modular",
-    "description": "Laravel modules",
+    "name": "idel/laravel-modular",
+    "description": "Laravel modular",
     "keywords": [
         "laravel",
         "module",
