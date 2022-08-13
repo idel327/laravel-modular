@@ -16,7 +16,7 @@ The package will automatically register a service provider and alias.
 
 ## Pages Link
 
-- Create Module (https://idel327.github.io/laravel-modular/make-module)
+- [Create Module](https://idel327.github.io/laravel-modular/make-module)
 
 ## Directory Structure
 
