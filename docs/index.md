@@ -44,6 +44,7 @@ So we'll have a structure like this :
     * Http
     	* Controllers
     	* Middleware
+    	* Requests
     * Exceptions
     * Jobs
     * Mails
@@ -64,7 +65,7 @@ Default structure with files :
 
 # To Do
 
-- Add Document.
+- Update Document.
 - Add Test Files.
 - Add Config File.
 - Improving Performance.

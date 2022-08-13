@@ -14,6 +14,17 @@ composer require idel/laravel-modular
 
 The package will automatically register a service provider and alias.
 
+
+## Pages Link
+
+- [Creating a module](https://idel327.github.io/laravel-modular/make-module)
+- [Creating a Model(Entity)](https://idel327.github.io/laravel-modular/make-model)
+- [Creating a Controller](https://idel327.github.io/laravel-modular/make-controller)
+
+## Documentation
+
+You'll find installation instructions and full documentation on [https://idel327.github.io/laravel-modular](https://idel327.github.io/laravel-modular).
+
 ## Directory Structure
 
 Using Artisan commands, files and folders are created according to your needs.
@@ -34,6 +45,7 @@ So we'll have a structure like this :
     * Http
     	* Controllers
     	* Middleware
+      * Requests
     * Exceptions
     * Jobs
     * Mails
@@ -54,7 +66,7 @@ Default structure with files :
 
 # To Do
 
-- Add Document.
+- Update Document.
 - Add Test Files.
 - Add Config File.
 - Improving Performance.
