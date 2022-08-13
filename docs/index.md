@@ -2,7 +2,7 @@
 
 Laravel Modular helps to make your application modular. Often happens that our applications grow a lot and we need a lot of models, resources, controllers, migrations etc.. With this package we can divide our parts in little chunks (or modules).
 
-** Loading modules using PSR-4 standard automatically **
+**Loading modules using PSR-4 standard automatically**
 
 ## Install
 
@@ -16,7 +16,12 @@ The package will automatically register a service provider and alias.
 
 ## Pages Link
 
-- [Create Module](https://idel327.github.io/laravel-modular/make-module)
+- [Creating a module](https://idel327.github.io/laravel-modular/make-module)
+- [Creating a Model(Entity)](https://idel327.github.io/laravel-modular/make-model)
+
+## Documentation
+
+You'll find installation instructions and full documentation on [https://idel327.github.io/laravel-modular](https://idel327.github.io/laravel-modular).
 
 ## Directory Structure
 
