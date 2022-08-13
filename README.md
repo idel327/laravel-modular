@@ -48,7 +48,7 @@ Default structure with files :
     	* ServiceProvider.php
   * info.json
 
-# To Do:
+# To Do
 
 - Add document
 - Add tests
