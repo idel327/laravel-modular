@@ -41,7 +41,8 @@
         }
     },
     "config": {
-        "preferred-install": "dev",
+        "minimum-stability": "dev",
+        "preferred-install": "dist",
         "sort-packages": true
     }
 }
