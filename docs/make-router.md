@@ -12,7 +12,10 @@ After creating the router file, we need to call the created file in the desired 
 
 If the name of the router is web, we place the following code in ServiceProvider.php
 
-**withNameSpace" parameter are optional**
+**If the withNameSpace parameter is true
+By default, the routers that are created derive the namespace related to their module**
+
+**"withNameSpace" parameter are optional**
 
 ``` bash
 
@@ -23,7 +26,7 @@ If the name of the router is web, we place the following code in ServiceProvider
      */
     public function boot()
     {
-        $this->registerWebRoute();
+        $this->registerWebRoute($withNameSpace);
     }
 
 ```

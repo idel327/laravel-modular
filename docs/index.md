@@ -19,6 +19,7 @@ The package will automatically register a service provider and alias.
 - [Creating a module](https://idel327.github.io/laravel-modular/make-module)
 - [Creating a Model(Entity)](https://idel327.github.io/laravel-modular/make-model)
 - [Creating a Controller](https://idel327.github.io/laravel-modular/make-controller)
+- [Creating a router](https://idel327.github.io/laravel-modular/make-router)
 
 ## Documentation
 
