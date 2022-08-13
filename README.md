@@ -1,2 +1,2 @@
-# modular
+# laravel-modular
 Laravel modules
