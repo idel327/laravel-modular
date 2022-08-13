@@ -14,6 +14,8 @@ The package will automatically register a service provider and alias.
 
 ## Directory Structure
 
+Using Artisan commands, files and folders are created according to your needs.
+
 So we'll have a structure like this :
 
 * modules
