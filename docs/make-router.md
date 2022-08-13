@@ -15,7 +15,7 @@ If the name of the router is web, we place the following code in ServiceProvider
 **If the withNameSpace parameter is true
 By default, the routers that are created derive the namespace related to their module**
 
-**"withNameSpace" parameter are optional**
+**"withNameSpace" parameter is optional**
 
 ``` bash
 
@@ -33,7 +33,7 @@ By default, the routers that are created derive the namespace related to their m
 
 If the name of the router is api, we place the following code in ServiceProvider.php
 
-**withNameSpace" parameter are optional**
+**withNameSpace" parameter is optional**
 
 ``` bash
 
