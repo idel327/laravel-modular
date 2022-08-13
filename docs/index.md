@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 ## Laravel-Modular
 
 Laravel Modular helps to make your application modular. Often happens that our applications grow a lot and we need a lot of models, resources, controllers, migrations etc.. With this package we can divide our parts in little chunks (or modules).
@@ -20,7 +16,7 @@ The package will automatically register a service provider and alias.
 
 ## Pages Link
 
-- Create Module (laravel-modular/make-module)
+- Create Module (https://idel327.github.io/laravel-modular/make-module)
 
 ## Directory Structure
 
