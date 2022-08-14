@@ -73,6 +73,7 @@ So we'll have a structure like this :
     * Traits
     * Events
     * Listeners
+    * Tests
     * Console
 
 Default structure with files :
