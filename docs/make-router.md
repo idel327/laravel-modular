@@ -26,7 +26,9 @@ By default, the routers that are created derive the namespace related to their m
      */
     public function boot()
     {
-        $this->registerWebRoute($withNameSpace);
+        $this->registerWebRoute();
+        // $withNameSpace => (true || false)
+        // $this->registerWebRoute($withNameSpace);
     }
 
 ```
@@ -44,7 +46,9 @@ If the name of the router is api, we place the following code in ServiceProvider
      */
     public function boot()
     {
-        $this->registerApiRoute($withNameSpace);
+        $this->registerApiRoute();
+        // $withNameSpace => (true || false)
+        //$this->registerApiRoute($withNameSpace);
     }
 
 ```
@@ -62,7 +66,9 @@ If the name of the router is not api or web, we put the following code in Servic
      */
     public function boot()
     {
-        $this->registerCustomRoute($routerFileName , $prefix , $middleware , $withNameSpace);
+        // $routerFileName => string , $prefix => string , $middleware => string , $withNameSpace => bool
+        $this->registerCustomRoute($routerFileName);
+        //$this->registerCustomRoute($routerFileName , $prefix , $middleware , $withNameSpace);
     }
 
 ```

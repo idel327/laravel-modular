@@ -21,10 +21,6 @@ The package will automatically register a service provider and alias.
 - [Creating a Controller](https://idel327.github.io/laravel-modular/make-controller)
 - [Creating a router](https://idel327.github.io/laravel-modular/make-router)
 
-## Documentation
-
-You'll find installation instructions and full documentation on [https://idel327.github.io/laravel-modular](https://idel327.github.io/laravel-modular).
-
 ## Directory Structure
 
 Using Artisan commands, files and folders are created according to your needs.
