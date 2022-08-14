@@ -36,6 +36,7 @@ The package will automatically register a service provider and alias.
 - [Creating a provider](https://idel327.github.io/laravel-modular/make-provider)
 - [Creating a request](https://idel327.github.io/laravel-modular/make-request)
 - [Creating a test](https://idel327.github.io/laravel-modular/make-test)
+- [Creating a helper file](https://idel327.github.io/laravel-modular/make-helper)
 
 # Actions
 

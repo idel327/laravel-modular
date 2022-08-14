@@ -29,6 +29,7 @@ class GeneratorServiceProvider extends ServiceProvider
             'route'        => \Idel\Modular\Console\Generators\MakeRouteCommand::class,
             'language'     => \Idel\Modular\Console\Generators\MakeLanguageCommand::class,
             'config'       => \Idel\Modular\Console\Generators\MakeConfigCommand::class,
+            'helper'       => \Idel\Modular\Console\Generators\MakeHelperCommand::class,
         ];
 
         $this->registerCommands($generators);
