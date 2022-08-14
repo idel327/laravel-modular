@@ -40,6 +40,9 @@ The package will automatically register a service provider and alias.
 
 # Actions
 
+- [Register storage disk](https://idel327.github.io/laravel-modular/register-storage-disk)
+- [Register blade files](https://idel327.github.io/laravel-modular/register-blade)
+
 ## Directory Structure
 
 Using Artisan commands, files and folders are created according to your needs.

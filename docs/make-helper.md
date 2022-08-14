@@ -8,4 +8,22 @@ php artisan make:module:helper blog helper
 
 This will create a helper file in the path modules/blog/helper.php
 
+After creating the helper file, we need to call the created file in the desired module's ServiceProvider.php
+
+**Pass the file name without its extension to $this->registerHelper()**
+
+``` bash
+
+    /**
+     * Bootstrap the module services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerHelper('helper');
+    }
+
+```
+
 - [Home Page](https://idel327.github.io/laravel-modular)

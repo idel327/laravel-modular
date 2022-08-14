@@ -23,5 +23,4 @@ After creating the config file, we need to call the created file in the desired 
     }
     
 ```
-
 - [Home Page](https://idel327.github.io/laravel-modular)
