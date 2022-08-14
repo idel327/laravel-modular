@@ -28,12 +28,13 @@ class CoreServiceProvider extends ServiceProvider
     /**
      * Register helper functions.
      *
+     * @param string $helperName
      * @return void
      */
-    protected function registerHelper()
+    protected function registerHelper(string $helperName = 'helper')
     {
         // TODO: Merge all helper files
-        $path = module_path($this->moduleName , "helper.php");
+        $path = module_path($this->moduleName , "{$helperName}.php");
         if (\File::isFile($path)) {
             require_once $path;
         }
