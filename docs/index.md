@@ -20,6 +20,19 @@ The package will automatically register a service provider and alias.
 - [Creating a Model(Entity)](https://idel327.github.io/laravel-modular/make-model)
 - [Creating a Controller](https://idel327.github.io/laravel-modular/make-controller)
 - [Creating a router](https://idel327.github.io/laravel-modular/make-router)
+- [Creating a migration](https://idel327.github.io/laravel-modular/make-migration)
+- [Creating a event](https://idel327.github.io/laravel-modular/make-event)
+- [Creating a job](https://idel327.github.io/laravel-modular/make-job)
+- [Creating a language(json)](https://idel327.github.io/laravel-modular/make-language)
+- [Creating a listener](https://idel327.github.io/laravel-modular/make-listener)
+- [Creating a mail](https://idel327.github.io/laravel-modular/make-mail)
+- [Creating a middleware](https://idel327.github.io/laravel-modular/make-middleware)
+- [Creating a notification](https://idel327.github.io/laravel-modular/make-notification)
+- [Creating a observer](https://idel327.github.io/laravel-modular/make-observer)
+- [Creating a policy](https://idel327.github.io/laravel-modular/make-policy)
+- [Creating a provider](https://idel327.github.io/laravel-modular/make-provider)
+- [Creating a request](https://idel327.github.io/laravel-modular/make-request)
+- [Creating a test](https://idel327.github.io/laravel-modular/make-test)
 
 ## Directory Structure
 
@@ -50,6 +63,7 @@ So we'll have a structure like this :
     * Facades
     * Traits
     * Events
+    * Listeners
     * Console
 
 Default structure with files :
