@@ -16,10 +16,13 @@ The package will automatically register a service provider and alias.
 
 ## Pages Link
 
+# Generators
+
 - [Creating a module](https://idel327.github.io/laravel-modular/make-module)
 - [Creating a Model(Entity)](https://idel327.github.io/laravel-modular/make-model)
 - [Creating a Controller](https://idel327.github.io/laravel-modular/make-controller)
 - [Creating a router](https://idel327.github.io/laravel-modular/make-router)
+- [Creating a config](https://idel327.github.io/laravel-modular/make-config)
 - [Creating a migration](https://idel327.github.io/laravel-modular/make-migration)
 - [Creating a event](https://idel327.github.io/laravel-modular/make-event)
 - [Creating a job](https://idel327.github.io/laravel-modular/make-job)
@@ -33,6 +36,8 @@ The package will automatically register a service provider and alias.
 - [Creating a provider](https://idel327.github.io/laravel-modular/make-provider)
 - [Creating a request](https://idel327.github.io/laravel-modular/make-request)
 - [Creating a test](https://idel327.github.io/laravel-modular/make-test)
+
+# Actions
 
 ## Directory Structure
 

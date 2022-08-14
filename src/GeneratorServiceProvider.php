@@ -13,7 +13,7 @@ class GeneratorServiceProvider extends ServiceProvider
     {
         $generators = [
             'module'       => \Idel\Modular\Console\Generators\MakeModuleCommand::class,
-            'entity'        => \Idel\Modular\Console\Generators\MakeEntityCommand::class,
+            'entity'       => \Idel\Modular\Console\Generators\MakeEntityCommand::class,
             'controller'   => \Idel\Modular\Console\Generators\MakeControllerCommand::class,
             'event'        => \Idel\Modular\Console\Generators\MakeEventCommand::class,
             'job'          => \Idel\Modular\Console\Generators\MakeJobCommand::class,
@@ -27,8 +27,8 @@ class GeneratorServiceProvider extends ServiceProvider
             'provider'     => \Idel\Modular\Console\Generators\MakeProviderCommand::class,
             'request'      => \Idel\Modular\Console\Generators\MakeRequestCommand::class,
             'route'        => \Idel\Modular\Console\Generators\MakeRouteCommand::class,
-            'language'        => \Idel\Modular\Console\Generators\MakeLanguageCommand::class,
-            // 'config' => \Idel\Modular\Console\Generators\MakeConfigCommand::class,
+            'language'     => \Idel\Modular\Console\Generators\MakeLanguageCommand::class,
+            'config'       => \Idel\Modular\Console\Generators\MakeConfigCommand::class,
         ];
 
         $this->registerCommands($generators);

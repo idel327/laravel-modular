@@ -5,6 +5,7 @@ namespace Idel\Modular;
 use SplFileInfo;
 use Symfony\Component\Finder\Finder;
 use Illuminate\Support\Facades\{Route , Config};
+use Illuminate\Contracts\Foundation\{CachesConfiguration , CachesRoutes};
 use Illuminate\Support\ServiceProvider;
 
 class CoreServiceProvider extends ServiceProvider
@@ -31,8 +32,9 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerHelper()
     {
+        // TODO: Merge all helper files
         $path = base_path("modules/{$this->moduleName}/helper.php");
-        if (app()->environment(['local','development' , 'production']) && \File::isFile($path)) {
+        if (\File::isFile($path)) {
             require_once $path;
         }
     }
@@ -75,12 +77,14 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerWebRoute($withNameSpace = false)
     {
-        $customizeModuleName = ucfirst($this->moduleName);
-        $moduleNameSpace = $withNameSpace ? "App\\{$customizeModuleName}\\Http\\Controllers" : null;
+        if(! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) :
+            $customizeModuleName = ucfirst($this->moduleName);
+            $moduleNameSpace = $withNameSpace ? "App\\{$customizeModuleName}\\Http\\Controllers" : null;
 
-        Route::middleware('web')
-            ->namespace($moduleNameSpace)
-            ->group(base_path("modules/{$this->moduleName}/routes/web.php"));
+            Route::middleware('web')
+                ->namespace($moduleNameSpace)
+                ->group(base_path("modules/{$this->moduleName}/routes/web.php"));
+        endif;
     }
 
     /**
@@ -91,13 +95,15 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerApiRoute($withNameSpace = false)
     {
-        $customizeModuleName = ucfirst($this->moduleName);
-        $moduleNameSpace = $withNameSpace ? "App\\{$customizeModuleName}\\Http\\Controllers" : null;
+        if(! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) :
+            $customizeModuleName = ucfirst($this->moduleName);
+            $moduleNameSpace = $withNameSpace ? "App\\{$customizeModuleName}\\Http\\Controllers" : null;
 
-        Route::prefix('api')
-            ->middleware('api')
-            ->namespace($moduleNameSpace)
-            ->group(base_path("modules/{$this->moduleName}/routes/api.php"));
+            Route::prefix('api')
+                ->middleware('api')
+                ->namespace($moduleNameSpace)
+                ->group(base_path("modules/{$this->moduleName}/routes/api.php"));
+        endif;
     }
 
     /**
@@ -111,13 +117,15 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerCustomRoute($routeName , $prefix = '' , $middleware = '' , $withNameSpace = false)
     {
-        $customizeModuleName = ucfirst($this->moduleName);
-        $moduleNameSpace = $withNameSpace ? "App\\{$customizeModuleName}\\Http\\Controllers" : null;
+        if(! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) :
+            $customizeModuleName = ucfirst($this->moduleName);
+            $moduleNameSpace = $withNameSpace ? "App\\{$customizeModuleName}\\Http\\Controllers" : null;
 
-        Route::prefix($prefix)
-            ->middleware($middleware)
-            ->namespace($moduleNameSpace)
-            ->group(base_path("modules/{$this->moduleName}/routes/{$routeName}.php"));
+            Route::prefix($prefix)
+                ->middleware($middleware)
+                ->namespace($moduleNameSpace)
+                ->group(base_path("modules/{$this->moduleName}/routes/{$routeName}.php"));
+        endif;
     }
 
     /**
@@ -140,9 +148,9 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerStorageDisk($diskName = null)
     {
-        if(! $diskName) {
+        if(! $diskName) :
             $diskName = $this->moduleName;
-        }
+        endif;
 
         Config::set("filesystems.disks.{$diskName}", [
             'driver' => 'local',
@@ -159,7 +167,9 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerConfig()
     {
-        $this->loadConfigsFrom(base_path("modules/{$this->moduleName}/config"));
+        if(! ($this->app instanceof CachesConfiguration && $this->app->configurationIsCached())) :
+            $this->loadConfigsFrom(base_path("modules/{$this->moduleName}/config"));
+        endif;
     }
 
     /**
@@ -170,11 +180,9 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function loadConfigsFrom(string $path)
     {
-        $files = $this->getConfigurationFiles($path);
-
-        foreach ($files as $key => $path) {
-            config()->set($key, require $path);
-        }
+        foreach ($this->getConfigurationFiles($path) as $key => $path) :
+            $this->mergeConfigFrom($path, $key);
+        endforeach;
     }
 
     /**
@@ -187,11 +195,10 @@ class CoreServiceProvider extends ServiceProvider
     {
         $files = [];
         $configPath = realpath($path);
-        foreach (Finder::create()->files()->name('*.php')->in($configPath) as $file) {
+        foreach (Finder::create()->files()->name('*.php')->in($configPath) as $file) :
             $directory = $this->getNestedDirectory($file, $configPath);
-
             $files[$directory.basename($file->getRealPath(), '.php')] = $file->getRealPath();
-        }
+        endforeach;
 
         ksort($files, SORT_NATURAL);
 
@@ -209,9 +216,9 @@ class CoreServiceProvider extends ServiceProvider
     {
         $directory = $file->getPath();
 
-        if ($nested = trim(str_replace($configPath, '', $directory), DIRECTORY_SEPARATOR)) {
+        if ($nested = trim(str_replace($configPath, '', $directory), DIRECTORY_SEPARATOR)) :
             $nested = str_replace(DIRECTORY_SEPARATOR, '.', $nested).'.';
-        }
+        endif;
 
         return $nested;
     }

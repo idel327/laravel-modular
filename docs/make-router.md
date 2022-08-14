@@ -6,7 +6,7 @@ To create a router, we use the "php artisan make:module:route ModuleName routerN
 php artisan make:module:route blog web
 ```
 
-This will create a router in the path modules/blog/src/routes/web.php.
+This will create a router in the path modules/blog/routes/web.php.
 
 After creating the router file, we need to call the created file in the desired module's ServiceProvider.php
 
