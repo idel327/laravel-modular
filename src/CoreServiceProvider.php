@@ -22,7 +22,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerViews()
     {
-        $this->loadViewsFrom(base_path("modules/{$this->moduleName}/resources/views"), $module);
+        $this->loadViewsFrom(module_path($this->moduleName , "resources/views"), $module);
     }
 
     /**
@@ -33,7 +33,7 @@ class CoreServiceProvider extends ServiceProvider
     protected function registerHelper()
     {
         // TODO: Merge all helper files
-        $path = base_path("modules/{$this->moduleName}/helper.php");
+        $path = module_path($this->moduleName , "helper.php");
         if (\File::isFile($path)) {
             require_once $path;
         }
@@ -46,7 +46,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerTranslations()
     {
-        $this->loadTranslationsFrom(base_path("modules/{$this->moduleName}/languages") , $this->moduleName);
+        $this->loadTranslationsFrom(module_path($this->moduleName , 'languages') , $this->moduleName);
     }
 
     /**
@@ -56,7 +56,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerJsonTranslations()
     {
-        $this->loadJsonTranslationsFrom(base_path("modules/{$this->moduleName}/languages") , $this->moduleName);
+        $this->loadJsonTranslationsFrom(module_path($this->moduleName , 'languages') , $this->moduleName);
     }
     
     /**
@@ -66,7 +66,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerMigrations()
     {
-        $this->loadMigrationsFrom(base_path("modules/{$this->moduleName}/database/migrations"));
+        $this->loadMigrationsFrom(module_path($this->moduleName , 'database/migrations'));
     }
 
     /**
@@ -75,7 +75,7 @@ class CoreServiceProvider extends ServiceProvider
      * @param boolean $withNameSpace = true
      * @return void
      */
-    protected function registerWebRoute($withNameSpace = false)
+    protected function registerWebRoute(bool $withNameSpace = false)
     {
         if(! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) :
             $customizeModuleName = ucfirst($this->moduleName);
@@ -83,7 +83,7 @@ class CoreServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->namespace($moduleNameSpace)
-                ->group(base_path("modules/{$this->moduleName}/routes/web.php"));
+                ->group(module_path($this->moduleName , 'routes/web.php'));
         endif;
     }
 
@@ -93,7 +93,7 @@ class CoreServiceProvider extends ServiceProvider
      * @param boolean $withNameSpace
      * @return void
      */
-    protected function registerApiRoute($withNameSpace = false)
+    protected function registerApiRoute(bool $withNameSpace = false)
     {
         if(! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) :
             $customizeModuleName = ucfirst($this->moduleName);
@@ -102,7 +102,7 @@ class CoreServiceProvider extends ServiceProvider
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($moduleNameSpace)
-                ->group(base_path("modules/{$this->moduleName}/routes/api.php"));
+                ->group(module_path($this->moduleName , 'routes/api.php'));
         endif;
     }
 
@@ -115,7 +115,7 @@ class CoreServiceProvider extends ServiceProvider
      * @param boolean $withNameSpace
      * @return void
      */
-    protected function registerCustomRoute($routeName , $prefix = '' , $middleware = '' , $withNameSpace = false)
+    protected function registerCustomRoute(string $routeName , string $prefix = '' , string $middleware = '' , bool $withNameSpace = false)
     {
         if(! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) :
             $customizeModuleName = ucfirst($this->moduleName);
@@ -124,7 +124,7 @@ class CoreServiceProvider extends ServiceProvider
             Route::prefix($prefix)
                 ->middleware($middleware)
                 ->namespace($moduleNameSpace)
-                ->group(base_path("modules/{$this->moduleName}/routes/{$routeName}.php"));
+                ->group(module_path($this->moduleName , "routes/{$routeName}.php"));
         endif;
     }
 
@@ -135,18 +135,18 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerFactories()
     {
-        $this->loadFactoriesFrom(base_path("modules/{$this->moduleName}/database/factories"));
+        $this->loadFactoriesFrom(module_path($this->moduleName , "database/factories"));
     }
 
     /**
      * Register storage disk.
      *
-     * !important : {!! Please call in the register method !!}
+     * !important : {!! Call in the register method !!}
      * 
      * @param string $diskName
      * @return void
      */
-    protected function registerStorageDisk($diskName = null)
+    protected function registerStorageDisk(string $diskName = null)
     {
         if(! $diskName) :
             $diskName = $this->moduleName;
@@ -168,7 +168,7 @@ class CoreServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         if(! ($this->app instanceof CachesConfiguration && $this->app->configurationIsCached())) :
-            $this->loadConfigsFrom(base_path("modules/{$this->moduleName}/config"));
+            $this->loadConfigsFrom(module_path($this->moduleName , "config"));
         endif;
     }
 
