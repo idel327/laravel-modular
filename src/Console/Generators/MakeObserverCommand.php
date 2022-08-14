@@ -54,7 +54,7 @@ class MakeObserverCommand extends Command
         $namespace = "App\\{$studlyModule}\\Observers";
         $dummyModel = "App\\{$studlyModule}\\Entities\\$model";
         $modelDumDollar = "$" . Str::lower($model);
-        $directionModule = base_path('modules') .'/' . $module . '/src';
+        $directionModule = module_path($module , 'src');
         $template = str_replace([
             'DummyClass',
             'DummyNamespace',

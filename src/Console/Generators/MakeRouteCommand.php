@@ -46,7 +46,7 @@ class MakeRouteCommand extends Command
     {
         $name = $this->argument('name');
         $module = $this->argument('slug');
-        $directionModule = base_path('modules') .'/' . $module;
+        $directionModule = module_path($module);
 
         if (!$this->files->isDirectory("{$directionModule}/routes")) {
             $this->files->makeDirectory("{$directionModule}/routes",0755, true);

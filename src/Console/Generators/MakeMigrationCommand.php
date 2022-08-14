@@ -40,8 +40,7 @@ class MakeMigrationCommand extends Command
         });
 
         unset($arguments['slug']);
-        $inSrc = false;
-        $modulePath = str_replace('//' , '/' , module_path($this->argument('slug'), 'database/migrations', null , $inSrc));
+        $modulePath = str_replace('//' , '/' , module_path($this->argument('slug'), 'database/migrations', null , false));
         $options['--path'] = str_replace(realpath(base_path()) . '/', '', $modulePath);
 
         return $this->call('make:migration', array_merge($arguments, $options));
