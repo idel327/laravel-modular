@@ -38,7 +38,7 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function publishes()
     {
-        $configPath = __DIR__ . '/../config/laravel-modules.php'
+        $configPath = __DIR__ . '/../config/laravel-modules.php';
 
         $this->publishes([
             $configPath => config_path('laravel-modules.php'),
