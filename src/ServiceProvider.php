@@ -40,6 +40,10 @@ class ServiceProvider extends LaravelServiceProvider
     {
         $configPath = __DIR__ . '/../config/laravel-modules.php';
 
+        if(config('laravel-modules') == null) :
+            $this->mergeConfigFrom($configPath, 'laravel-modules');
+        endif;
+
         $this->publishes(
             [
                 $configPath => config_path('laravel-modules.php'),

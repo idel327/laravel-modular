@@ -1,0 +1,67 @@
+<?php
+
+namespace {{namespace}}\Resources;
+
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use App\Nova\Resource as NovaResource;
+
+class {{resourceName}} extends NovaResource
+{
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __("{{resourceLable}}");
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __("{{resourceName}}");
+    }
+
+    /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $model = '{{resourceModel}}';
+
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
+    public static $title = 'id';
+
+    /**
+     * The columns that should be searched.
+     *
+     * @var array
+     */
+    public static $search = ['id'];
+
+    /**
+     * Get the fields displayed by the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function fields(Request $request)
+    {
+        return [
+            ID::make(__('ID'),'id')
+                ->sortable()
+                ->onlyOnIndex(),
+        ];
+    }
+}

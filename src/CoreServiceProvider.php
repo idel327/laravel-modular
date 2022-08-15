@@ -7,9 +7,12 @@ use Symfony\Component\Finder\Finder;
 use Illuminate\Support\Facades\{Route , Config};
 use Illuminate\Contracts\Foundation\{CachesConfiguration , CachesRoutes};
 use Illuminate\Support\ServiceProvider;
+use Idel\Modular\Traits\NovaSupport;
 
 class CoreServiceProvider extends ServiceProvider
 {
+    use NovaSupport;
+
     /**
      * @var string $moduleName
      */

@@ -11,6 +11,8 @@ class GeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $novaGenerators = [];
+
         $generators = [
             'module'          => \Idel\Modular\Console\Generators\MakeModuleCommand::class,
             'entity'          => \Idel\Modular\Console\Generators\MakeEntityCommand::class,
@@ -33,7 +35,23 @@ class GeneratorServiceProvider extends ServiceProvider
             'blade-directory' => \Idel\Modular\Console\Generators\MakeBladeDirectoryCommand::class,
         ];
 
-        $this->registerCommands($generators);
+        if(config('laravel-modules.supportLaravelNova')) :
+
+            $novaGenerators = [
+                'action'    => \Idel\Modular\Console\Generators\Nova\MakeActionCommand::class,
+                'card'      => \Idel\Modular\Console\Generators\Nova\MakeCardCommand::class,
+                'dashboard' => \Idel\Modular\Console\Generators\Nova\MakeDashboardCommand::class,
+                'field'     => \Idel\Modular\Console\Generators\Nova\MakeFieldCommand::class,
+                'filter'    => \Idel\Modular\Console\Generators\Nova\MakeFilterCommand::class,
+                'lens'      => \Idel\Modular\Console\Generators\Nova\MakeLensCommand::class,
+                'resource'  => \Idel\Modular\Console\Generators\Nova\MakeResourceCommand::class,
+                'value'     => \Idel\Modular\Console\Generators\Nova\MakeValueCommand::class,
+                'partition' => \Idel\Modular\Console\Generators\Nova\MakePartitionCommand::class,
+            ];
+
+        endif;
+
+        $this->registerCommands(array_merge($generators , $novaGenerators));
     }
 
     /*

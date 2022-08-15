@@ -1,5 +1,8 @@
 <?php
 
+use Symfony\Component\Finder\Finder;
+use Idel\Modular\Exceptions\ModuleNotFoundException;
+
 if (!function_exists('modules')) {
 
     /**
@@ -81,5 +84,24 @@ if (!function_exists('module_class')) {
         $namespace = "App\\" . $module['name'];
 
         return "$namespace\\$class";
+    }
+}
+
+
+if (! function_exists('getNovaResources')) {
+
+    /**
+     * Autoload all nova resources of your module.
+     *
+     * @return array
+     */
+    function getNovaResources($resourcesPath , $namSpace)
+    {
+        $resources = [];
+        foreach ((new Finder)->in($resourcesPath)->files() as $resource) {
+            $fileName = str_replace('.php', '', $resource->getFilename());
+            $resources[] = str_replace('/' , '\\' ,"{$namSpace}/Resources/{$fileName}");
+        }
+        return $resources;
     }
 }
