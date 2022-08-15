@@ -4,6 +4,7 @@ namespace Idel\Modular\Traits;
 
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
+use Str;
 
 trait NovaSupport
 {
