@@ -31,7 +31,7 @@ trait NovaSupport
 	    	$moduleDir = module_path($this->moduleName);
 	    	$moduleUcFirst = Str::ucfirst($this->moduleName);
 
-	        Nova::serving(function (ServingNova $event) use($hasResources , $hasCards , $hasDashboards , $hasTools , $hasJs , $hasCss , $assetDir) {
+	        Nova::serving(function (ServingNova $event) use($hasResources , $hasCards , $hasDashboards , $hasTools , $hasJs , $hasCss , $assetDir , $moduleDir , $moduleUcFirst) {
 	        	if($hasResources) :
 	            	Nova::resources(getNovaResources("{$moduleDir}/{$this->moduleName}/src/Resources" , "App/{$moduleUcFirst}"));
 	        	endif;
