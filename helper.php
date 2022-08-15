@@ -30,7 +30,7 @@ if (!function_exists('module_path')) {
      */
     function module_path($slug = null, $file = '', $location = null , $inSrc = false , $typeSeeder = false) {
         $location = $location ?: "modules";
-        $modulesPath = base_path('modules');
+        $modulesPath = config('laravel-modules.modulesPath');
 
         $filePath = $file ? '/' . ltrim($file, '/') : '';
        
@@ -71,7 +71,7 @@ if (!function_exists('module_class')) {
      * @throws \Idel\Modular\Exceptions\ModuleNotFoundException
      */
     function module_class($slug, $class, $location = null) {
-        $location = $location ?: base_path('modules');
+        $location = $location ?: config('laravel-modules.modulesPath');
         $module = modules($location)->where('slug', $slug);
 
         if (is_null($module)) {

@@ -46,7 +46,7 @@ class MakeLanguageCommand extends Command
     {
         $name = $this->argument('name');
         $module = $this->argument('slug');
-        $directionModule = base_path('modules') .'/' . $module;
+        $directionModule = config('laravel-modules.modulesPath') .'/' . $module;
 
         if (!$this->files->isDirectory("{$directionModule}/languages")) {
             $this->files->makeDirectory("{$directionModule}/languages",0755, true);

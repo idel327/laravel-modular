@@ -16,6 +16,7 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function boot()
     {
+        $this->publishes();
         $this->app['modules']->register();
     }
 
@@ -30,6 +31,18 @@ class ServiceProvider extends LaravelServiceProvider
         $this->app->singleton('modules', function ($app) {
             return new RepositoryManager($app);
         });
+    }
+
+    /**
+     * Publishes files.
+     */
+    public function publishes()
+    {
+        $configPath = __DIR__ . '/../config/laravel-modules.php'
+
+        $this->publishes([
+            $configPath => config_path('laravel-modules.php'),
+        ], 'config');
     }
 
     /**

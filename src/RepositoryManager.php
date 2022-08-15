@@ -24,9 +24,9 @@ class RepositoryManager
     protected $classLoader;
 
     /**
-     * @var Path
+     * @var Modules Path
      */
-    protected $path;
+    protected $modulePath;
 
     /**
      * Repository Manager instance.
@@ -36,7 +36,7 @@ class RepositoryManager
     public function __construct(Application $app)
     {
         $this->app         = $app;
-        $this->path        = base_path('modules');
+        $this->modulePath  = config('laravel-modules.modulesPath');
         $this->classLoader = new ClassLoader;
     }
 
@@ -47,9 +47,7 @@ class RepositoryManager
      */
     public function register()
     {
-        $moduleLocations = base_path('modules');
-
-        $repository = $this->repository($moduleLocations);
+        $repository = $this->repository($this->modulePath);
         $modules    = $repository->enabled()->sortBy(['order']);
   
         $modules->each(function ($module){
@@ -67,8 +65,7 @@ class RepositoryManager
     private function registerServiceProvider($module)
     {
         $moduleName = $module['name'];
-        $provider = $moduleName . "ServiceProvider";
-        $providerLoader = "App\\{$moduleName}\\Providers\\{$provider}";
+        $providerLoader = "App\\{$moduleName}\\Providers\\{$moduleName}ServiceProvider";
         if (class_exists($providerLoader)) {
             $this->app->register($providerLoader);
         }
@@ -82,10 +79,9 @@ class RepositoryManager
      */
     public function addPsr4($module)
     {
-        $modulrDir  = $this->path;
         $moduleName = $module['name'];
         $moduleSlug = $module['slug'];
-        $this->classLoader->addPsr4('App\\' . $moduleName . '\\', $modulrDir . '/' .$moduleSlug . "/src");
+        $this->classLoader->addPsr4("App\\{$moduleName}\\", "{$this->modulePath}/{$moduleSlug}/src");
         $this->classLoader->register();
     }
 
@@ -103,8 +99,8 @@ class RepositoryManager
      */
     protected function repository()
     {
-        return  $this->repositories[$this->path]
-            ?? $this->repositories[$this->path] = new LocalRepository($this->path);
+        return  $this->repositories[$this->modulePath]
+            ?? $this->repositories[$this->modulePath] = new LocalRepository($this->modulePath);
     }
 
     /**

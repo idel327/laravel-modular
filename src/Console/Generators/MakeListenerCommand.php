@@ -51,7 +51,7 @@ class MakeListenerCommand extends Command
         $event = $this->option('event');
         $eventShortName = Str::studly($event);
         $studlyName = Str::studly($name);
-        $directionModule = base_path('modules') .'/' . $module . '/src';
+        $directionModule = config('laravel-modules.modulesPath') .'/' . $module . '/src';
         $studlyModule = Str::studly($module);
         $namespace = "App\\{$studlyModule}\\Listeners";
         $eventNamespace = "App\\{$studlyModule}\\Events\\{$eventShortName}";

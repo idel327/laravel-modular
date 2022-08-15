@@ -48,7 +48,7 @@ class MakeMailCommand extends Command
         $name = $this->argument('name');
         $module = $this->argument('slug');
         $studlyName = Str::studly($name);
-        $directionModule = base_path('modules') .'/' . $module . '/src';
+        $directionModule = config('laravel-modules.modulesPath') .'/' . $module . '/src';
         $studlyModule = Str::studly($module);
         $namespace = "App\\{$studlyModule}\\Mails";
         $template = str_replace([
