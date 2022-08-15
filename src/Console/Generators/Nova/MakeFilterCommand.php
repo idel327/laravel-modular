@@ -74,7 +74,7 @@ class MakeFilterCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaFilter.stub';
+        return __DIR__.'/../../../../stubs/nova/novaFilter.stub';
     }
 
     /**

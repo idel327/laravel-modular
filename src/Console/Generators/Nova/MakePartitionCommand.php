@@ -80,7 +80,7 @@ class MakePartitionCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaPartition.stub';
+        return __DIR__.'/../../../../stubs/nova/novaPartition.stub';
     }
 
     /**

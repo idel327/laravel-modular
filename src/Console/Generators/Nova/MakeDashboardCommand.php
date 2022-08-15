@@ -78,7 +78,7 @@ class MakeDashboardCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaDashboard.stub';
+        return __DIR__.'/../../../../stubs/nova/novaDashboard.stub';
     }
 
     /**

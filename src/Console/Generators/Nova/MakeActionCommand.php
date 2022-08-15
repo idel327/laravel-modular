@@ -82,7 +82,7 @@ class MakeActionCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaAction.stub';
+        return __DIR__.'/../../../../stubs/nova/novaAction.stub';
     }
 
     /**

@@ -87,7 +87,7 @@ class MakeCardCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaCard.stub';
+        return __DIR__.'/../../../../stubs/nova/novaCard.stub';
     }
 
     /**

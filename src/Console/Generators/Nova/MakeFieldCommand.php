@@ -78,7 +78,7 @@ class MakeFieldCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaField.stub';
+        return __DIR__.'/../../../../stubs/nova/novaField.stub';
     }
 
     /**

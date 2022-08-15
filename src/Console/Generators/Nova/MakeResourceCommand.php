@@ -88,7 +88,7 @@ class MakeResourceCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaResource.stub';
+        return __DIR__.'/../../../../stubs/nova/novaResource.stub';
     }
 
     /**

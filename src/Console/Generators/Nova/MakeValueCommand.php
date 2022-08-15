@@ -81,7 +81,7 @@ class MakeValueCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaValue.stub';
+        return __DIR__.'/../../../../stubs/nova/novaValue.stub';
     }
 
     /**

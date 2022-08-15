@@ -81,7 +81,7 @@ class MakeLensCommand extends Command
      */
     protected function getStub()
     {
-        return __DIR__.'/../../../stubs/nova/novaLens.stub';
+        return __DIR__.'/../../../../stubs/nova/novaLens.stub';
     }
 
     /**
