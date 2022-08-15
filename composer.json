@@ -44,7 +44,7 @@
         }
     },
     "post-update-cmd": [
-        "@php artisan vendor:publish --provider=Idel\Modular\ServiceProvider
+        "@php artisan vendor:publish --provider=Idel\Modular\ServiceProvider"
     ],
     "config": {
         "minimum-stability": "dev",
