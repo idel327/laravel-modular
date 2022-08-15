@@ -81,7 +81,7 @@ abstract class Repository implements RepositoryContract
      */
     public function getPath(): string
     {
-        return $this->path ?: base_path('modules');
+        return $this->path ?: config('laravel-modules.modulesPath');
     }
 
     /**

@@ -60,7 +60,7 @@ class MakeModuleCommand extends Command
         $name = $this->container['name'];
         $this->container['description'] = "This is the description for the {$name} module.";
 
-        $this->container['location']    = base_path('modules');
+        $this->container['location']    = config('laravel-modules.modulesPath');
         $this->container['provider']    = "{$name}ServiceProvider";
 
 

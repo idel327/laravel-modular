@@ -16,10 +16,10 @@ abstract class GeneratorCommand extends LaravelGeneratorCommand
     protected function qualifyClass($name)
     {
         try {
-            $location = $this->option('location') ?: base_path('modules');
+            $location = $this->option('location') ?: config('laravel-modules.modulesPath');
         }
         catch (\Exception $e) {
-            $location = base_path('modules');
+            $location = config('laravel-modules.modulesPath');
         }
         $name = str_replace('/', '\\', $name);
         return $this->getDefaultNamespace($this->rootNamespace()).'\\'.$name;
@@ -34,10 +34,10 @@ abstract class GeneratorCommand extends LaravelGeneratorCommand
     protected function getPath($name)
     {
         try {
-            $location = $this->option('location') ?: base_path('modules');
+            $location = $this->option('location') ?: config('laravel-modules.modulesPath');
         }
         catch (\Exception $e) {
-            $location = base_path('modules');
+            $location = config('laravel-modules.modulesPath');
         }
         $slug = $this->argument('slug');
         $module = Module::location($location)->where('slug', $slug);
