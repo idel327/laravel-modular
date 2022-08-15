@@ -46,8 +46,31 @@ php artisan vendor:publish --provider="Idel\Modular\ServiceProvider"
 
 # Actions
 
-- [Register storage disk](https://idel327.github.io/laravel-modular/register-storage-disk)
+- [Optimize modules](https://idel327.github.io/laravel-modular/module-optimize)
+- [How to register storage disk](https://idel327.github.io/laravel-modular/register-storage-disk)
 - [Register blade files](https://idel327.github.io/laravel-modular/register-blade)
+- [How to disable module](https://idel327.github.io/laravel-modular/disable-module)
+- [How to enable module](https://idel327.github.io/laravel-modular/enable-module)
+- [Migrate the given module or migrate all modules](https://idel327.github.io/laravel-modular/migrate-module)
+- [Refresh the migration](https://idel327.github.io/laravel-modular/migrate-refresh-module)
+- [Reset the migration](https://idel327.github.io/laravel-modular/migrate-reset-module)
+- [Rollback the given module or rollback all modules.](https://idel327.github.io/laravel-modular/migrate-rollback-module)
+- [Modules list](https://idel327.github.io/laravel-modular/module-list)
+
+
+- [How to modularize Laravel Nova](https://idel327.github.io/laravel-modular/nova/how-to-active-nova)
+
+# Nova Generators
+
+- [Creating a nova resource](https://idel327.github.io/laravel-modular/nova/make-resource)
+- [Creating a nova action](https://idel327.github.io/laravel-modular/nova/make-action)
+- [Creating a nova card](https://idel327.github.io/laravel-modular/nova/make-card)
+- [Creating a nova dashboard](https://idel327.github.io/laravel-modular/nova/make-dashboard)
+- [Creating a nova field](https://idel327.github.io/laravel-modular/nova/make-field)
+- [Creating a nova filter](https://idel327.github.io/laravel-modular/nova/make-filter)
+- [Creating a nova lens](https://idel327.github.io/laravel-modular/nova/make-lens)
+- [Creating a nova partition](https://idel327.github.io/laravel-modular/nova/make-partition)
+- [Creating a nova value](https://idel327.github.io/laravel-modular/nova/make-value)
 
 ## Documentation
 
@@ -98,10 +121,8 @@ Default structure with files :
 
 - Update Document.
 - Add Test Files.
-- Add Config File.
 - Improving Performance.
 - Cache System.
-- Support Laravel Nova.
 - Public Folder Support In Each Module.
 
 # Contact us
