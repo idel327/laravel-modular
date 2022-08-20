@@ -196,11 +196,13 @@ class MakeModuleCommand extends Command
                 if ($file->getFilename() === 'ServiceProvider.php') {
                     $filePath = str_replace('ServiceProvider', $this->container['provider'], $filePath);
                 } else if($file->getFilename() === 'ModuleController.php') {
-                    $filePath = str_replace('ModuleController', $this->container['provider'], $filePath);
+                    $filePath = str_replace('ModuleController', $this->container['controller'], $filePath);
                 } else if($file->getFilename() === "Entity.php") {
                     $filePath = str_replace('Entity', $this->container['entity'], $filePath);
                 } else if($file->getFilename() === "migration.php") {
                     $filePath = str_replace('migration.php', $this->container['migration'] . ".php" , $filePath);
+                } else if($file->getFilename() === "config.php") {
+                    $filePath = str_replace('config.php', $this->container['slug'] . ".php" , $filePath);
                 }
 
                 $dir = dirname($filePath);
