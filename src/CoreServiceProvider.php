@@ -25,7 +25,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     protected function registerViews()
     {
-        $this->loadViewsFrom(module_path($this->moduleName , "resources/views"), $module);
+        $this->loadViewsFrom(module_path($this->moduleName , "resources/views"), $this->moduleName);
     }
 
     /**
