@@ -15,7 +15,11 @@ If the name of the router is web, we place the following code in ServiceProvider
 **If the withNameSpace parameter is true
 By default, the routers that are created derive the namespace related to their module**
 
-**"withNameSpace" parameter is optional**
+# Parameters
+
+| Name | Type | Rules | Default |
+| ---  | ---  |  ---  |   ---   |
+| withNameSpace | boolean | nullable | false |
 
 ``` bash
 
@@ -27,15 +31,21 @@ By default, the routers that are created derive the namespace related to their m
     public function boot()
     {
         $this->registerWebRoute();
-        // $withNameSpace => (true || false)
-        // $this->registerWebRoute($withNameSpace);
+
+        // Or
+
+        $this->registerWebRoute($withNameSpace);
     }
 
 ```
 
 If the name of the router is api, we place the following code in ServiceProvider.php
 
-**withNameSpace" parameter is optional**
+# Parameters
+
+| Name | Type | Rules | Default |
+| ---  | ---  |  ---  |   ---   |
+| withNameSpace | boolean | nullable | false |
 
 ``` bash
 
@@ -47,15 +57,22 @@ If the name of the router is api, we place the following code in ServiceProvider
     public function boot()
     {
         $this->registerApiRoute();
-        // $withNameSpace => (true || false)
-        //$this->registerApiRoute($withNameSpace);
+        // Or
+        $this->registerApiRoute($withNameSpace);
     }
 
 ```
 
 If the name of the router is not api or web, we put the following code in ServiceProvider.php
 
-**"prefix" and "middleware" and "withNameSpace" parameters are optional**
+# Parameters
+
+| Name | Type | Rules | Default |
+| ---  | ---  |  ---  |   ---   |
+| routerFileName | string | required | null |
+| prefix | string | nullable | '' |
+| middleware | string | nullable | '' |
+| withNameSpace | boolean | nullable | false |
 
 ``` bash
 
@@ -66,9 +83,9 @@ If the name of the router is not api or web, we put the following code in Servic
      */
     public function boot()
     {
-        // $routerFileName => string , $prefix => string , $middleware => string , $withNameSpace => bool
         $this->registerCustomRoute($routerFileName);
-        //$this->registerCustomRoute($routerFileName , $prefix , $middleware , $withNameSpace);
+        //Or
+        $this->registerCustomRoute($routerFileName , $prefix , $middleware , $withNameSpace);
     }
 
 ```

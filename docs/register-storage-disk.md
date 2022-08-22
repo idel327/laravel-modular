@@ -2,6 +2,12 @@
 
 Put the following code in the desired module.
 
+# Parameters
+
+| Name | Type | Rules | Default |
+| ---  | ---  |  ---  |   ---   |
+| diskName | string | required | null |
+
 ``` bash
 
     /**
@@ -11,7 +17,11 @@ Put the following code in the desired module.
      */
     public function register()
     {
-    	$this->registerStorageDisk('blogs');
+    	$this->registerStorageDisk($diskName);
+
+        // For example :
+
+        $this->registerStorageDisk('blogs');
     }
 
 ```

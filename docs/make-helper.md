@@ -12,6 +12,12 @@ After creating the helper file, we need to call the created file in the desired 
 
 **Pass the file name without its extension to $this->registerHelper()**
 
+# Parameters
+
+| Name | Type | Rules | Default |
+| ---  | ---  |  ---  |   ---   |
+| helperName | string | required | 'helper' |
+
 ``` bash
 
     /**
@@ -21,7 +27,7 @@ After creating the helper file, we need to call the created file in the desired 
      */
     public function boot()
     {
-        $this->registerHelper('helper');
+        $this->registerHelper($helperName);
     }
 
 ```
