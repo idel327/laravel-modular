@@ -17,7 +17,8 @@ class MakeModuleCommand extends Command
      */
     protected $signature = 'make:module 
         {slug : The slug of the module}
-        {--normal : Generate a normal module}';
+        {--normal : Generate a normal module}
+        {--full : Generate a full module}';
 
     /**
      * The console command description.
@@ -176,6 +177,8 @@ class MakeModuleCommand extends Command
 
         if($this->option('normal')) :
             $structure = 'normal';
+        elseif($this->option('full')):
+            $structure = 'full';
         endif;
 
         $source    = __DIR__ . "/../../../structure/{$structure}";
@@ -260,7 +263,8 @@ class MakeModuleCommand extends Command
     protected function getOptions()
     {
         return [
-            ['normal', 'n', InputOption::VALUE_NONE, 'Normal Module'],
+            ['normal', 'n', InputOption::VALUE_NONE, 'Normal Module Structure'],
+            ['full', 'f', InputOption::VALUE_NONE, 'Full Module Structure'],
         ];
     }
 
